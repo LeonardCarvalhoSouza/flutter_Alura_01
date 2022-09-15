@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 
+import 'difficulty.dart';
+
 void main() {
   runApp(MyApp());
 }
 
 class MyApp extends StatefulWidget {
+  // ignore: prefer_const_constructors_in_immutables
   MyApp({Key? key}) : super(key: key);
 
   @override
@@ -55,7 +58,7 @@ class _MyAppState extends State<MyApp> {
                 opacidade = !opacidade;
               });
             },
-            child: Icon(Icons.remove_red_eye),
+            child: const Icon(Icons.remove_red_eye),
           ),
         ));
   }
@@ -125,44 +128,8 @@ class _TaskState extends State<Task> {
                                 fontSize: 24, overflow: TextOverflow.ellipsis),
                           ),
                         ),
-                        Row(
-                          children: [
-                            Icon(
-                              Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 1)
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 2)
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 3)
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 4)
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                            Icon(
-                              Icons.star,
-                              size: 15,
-                              color: (widget.dificuldade >= 5)
-                                  ? Colors.blue
-                                  : Colors.blue[100],
-                            ),
-                          ],
+                        Difficulty(
+                          difficultyLevel: widget.dificuldade,
                         )
                       ],
                     ),
