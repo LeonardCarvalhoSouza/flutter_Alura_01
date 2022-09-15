@@ -1,11 +1,18 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const MyApp());
+  runApp(MyApp());
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+class MyApp extends StatefulWidget {
+  MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  bool opacidade = true;
 
   // This widget is the root of your application.
   @override
@@ -20,18 +27,35 @@ class MyApp extends StatelessWidget {
             leading: Container(),
             title: const Text('Tarefas'),
           ),
-          body: ListView(
-            children: const [
-              Task(
-                  'Aprender Flutter',
-                  'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
-                  3),
-              Task(
-                  'Banco de dados',
-                  'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
-                  3),
-              Task('Conseguir um emprego ', '', 3),
-            ],
+          body: AnimatedOpacity(
+            opacity: opacidade ? 1 : 0,
+            duration: const Duration(
+              milliseconds: 900,
+            ),
+            child: ListView(
+              children: const [
+                Task(
+                    'Aprender Flutter',
+                    'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+                    3),
+                Task(
+                    'Banco de dados',
+                    'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+                    3),
+                Task(
+                    'Conseguir um emprego ',
+                    'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
+                    3),
+              ],
+            ),
+          ),
+          floatingActionButton: FloatingActionButton(
+            onPressed: () {
+              setState(() {
+                opacidade = !opacidade;
+              });
+            },
+            child: Icon(Icons.remove_red_eye),
           ),
         ));
   }
@@ -57,24 +81,36 @@ class _TaskState extends State<Task> {
       child: Stack(
         children: [
           Container(
-            color: Colors.blue,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(4),
+              color: Colors.blue,
+            ),
             height: 140,
           ),
           Column(
             children: [
               Container(
-                color: Colors.white,
+                decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Colors.white,
+                ),
                 height: 100,
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Container(
-                      color: Colors.black26,
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(4),
+                        color: Colors.black26,
+                      ),
                       width: 72,
                       height: 100,
-                      child: Image.network(
-                        widget.foto,
-                        fit: BoxFit.cover,
+                      child: ClipRRect(
+                        borderRadius: BorderRadius.circular(4),
+                        child: Image.network(
+                          widget.foto,
+                          fit: BoxFit.cover,
+                        ),
                       ),
                     ),
                     Column(
