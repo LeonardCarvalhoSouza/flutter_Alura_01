@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:aula_alura_01/task.dart';
+import 'package:aula_alura_01/components/task.dart';
 
 class InitialScren extends StatefulWidget {
   const InitialScren({Key? key}) : super(key: key);
@@ -24,18 +24,14 @@ class _InitialScrenState extends State<InitialScren> {
         ),
         child: ListView(
           children: const [
-            Task(
-                'Aprender Flutter',
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
-                3),
-            Task(
-                'Banco de dados',
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
-                3),
-            Task(
-                'Conseguir um emprego ',
-                'https://pbs.twimg.com/media/Eu7m692XIAEvxxP?format=png&name=large',
-                3),
+            Task('Aprender Flutter', 'assets/images/dash.png', 3),
+            Task('Andar de Bike', 'assets/images/bike.webp', 3),
+            Task('Ler um Livro ', 'assets/images/livro.jpg', 3),
+            Task('Meditar', 'assets/images/meditar.jpeg', 3),
+            Task('Jogar ', 'assets/images/jogar.jpg', 3),
+            SizedBox(
+              height: 20,
+            )
           ],
         ),
       ),
