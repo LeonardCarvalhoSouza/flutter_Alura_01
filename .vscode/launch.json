@@ -1,0 +1,28 @@
+{
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "aula_alura_01",
+            "cwd": "aula_alura_01",
+            "request": "launch",
+            "type": "dart"
+        },
+        {
+            "name": "aula_alura_01 (profile mode)",
+            "cwd": "aula_alura_01",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "profile"
+        },
+        {
+            "name": "aula_alura_01 (release mode)",
+            "cwd": "aula_alura_01",
+            "request": "launch",
+            "type": "dart",
+            "flutterMode": "release"
+        }
+    ]
+}
