@@ -1,3 +1,4 @@
+import 'package:aula_alura_01/data/talk_inherited.dart';
 import 'package:flutter/material.dart';
 import 'screens/home_page.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const InitialScren(),
+      home: TaskInherited(child: const InitialScren()),
     );
   }
 }
